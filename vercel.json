@@ -1,7 +1,7 @@
 {
     "version": 2,
     "builds": [
-        {"src": "hello.py", "use": "@vercel/phyton"}
+        {"src": "hello.py", "use": "@vercel/pyhton"}
     ],
     "routes": [
         { "src": "/(.*)", "dest": "/hello.py" }
