@@ -2,9 +2,33 @@
 {% block title %} Contact {% endblock %}
 {% block content %}
 
-<div class="container-fluid">
+<div class="container">
     <h1>Hubungi Kami</h1>
-    Ini Halaman hubungi kami
+    {% if pesan_konfirmasi %}
+        <div class="alert alert-success">
+            {{ pesan_konfirmasi}}
+            <ul>
+                <li>{{ nama }}</li>
+                <li>{{ email }}</li>
+                <li>{{ pesan }}</li>
+            </ul>
+        </div>
+    {% endif %}
+    <form action="/contact" method="POST">
+        <div class="form-group">
+            <label for="nama">Nama</label>
+            <input type="text" class="form-control" name="nama">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" name="email">
+        </div>
+        <div class="form-group">
+            <label for="pesan">Pesan</label>
+            <textarea name="pesan" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Kirim</button>
+    </form>
 </div>
 
 {% endblock %}
